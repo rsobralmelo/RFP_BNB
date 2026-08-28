@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RFP 2026-013 — Explicada</title>
+<meta name="description" content="Guia independente sobre a RFP 2026-013 do Banco do Nordeste: contratação de serviços especializados de apoio à gestão de fundos de investimento." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F2F5F3;
+    --surface: #FFFFFF;
+    --surface-2: #EAEFEC;
+    --ink: #16211F;
+    --ink-soft: #4B5854;
+    --ink-faint: #7C8B85;
+    --accent: #1F6F5C;
+    --accent-strong: #12463A;
+    --accent-tint: #E3EFEB;
+    --ochre: #A96A2E;
+    --ochre-tint: #F4E9DC;
+    --line: #DCE3DF;
+    --danger: #93402B;
+    --danger-tint: #F3E4DE;
+    --shadow: 0 1px 2px rgba(20,35,30,0.04), 0 8px 24px -12px rgba(20,35,30,0.12);
+    --radius: 10px;
+    --maxw: 1080px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: #0D1512;
+      --surface: #131D19;
+      --surface-2: #1A2521;
+      --ink: #ECF2EF;
+      --ink-soft: #A9B8B1;
+      --ink-faint: #728178;
+      --accent: #52B49A;
+      --accent-strong: #7ED0B9;
+      --accent-tint: #17332C;
+      --ochre: #D9A05C;
+      --ochre-tint: #2E2517;
+      --line: #26332E;
+      --danger: #D98F76;
+      --danger-tint: #2E2019;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #0D1512;
+    --surface: #131D19;
+    --surface-2: #1A2521;
+    --ink: #ECF2EF;
+    --ink-soft: #A9B8B1;
+    --ink-faint: #728178;
+    --accent: #52B49A;
+    --accent-strong: #7ED0B9;
+    --accent-tint: #17332C;
+    --ochre: #D9A05C;
+    --ochre-tint: #2E2517;
+    --line: #26332E;
+    --danger: #D98F76;
+    --danger-tint: #2E2019;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Public Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Petrona', Georgia, 'Times New Roman', serif;
+    font-weight:600;
+    color:var(--ink);
+    text-wrap:balance;
+    line-height:1.15;
+    margin:0;
+  }
+  a{color:var(--accent-strong);}
+  :root[data-theme="dark"] a, @media (prefers-color-scheme: dark){ a{color:var(--accent-strong);} }
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:2px;
+    border-radius:4px;
+  }
+  .mono{font-family:'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric:tabular-nums;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-size:0.72rem;
+    font-weight:600;
+    color:var(--accent);
+  }
+  img{max-width:100%;}
+  @media (prefers-reduced-motion: reduce){ *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;} }
+
+  /* ---- top bar ---- */
+  .topbar{
+    position:sticky; top:0; z-index:40;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:var(--maxw); margin:0 auto; padding:12px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink);}
+  .brand-mark{
+    width:30px; height:30px; border-radius:7px;
+    background:var(--accent); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:0.68rem;
+    flex:none;
+  }
+  .brand-text{font-family:'Petrona', serif; font-weight:600; font-size:1.02rem;}
+  .brand-text .sub{display:block; font-family:'Public Sans',sans-serif; font-weight:400; font-size:0.68rem; color:var(--ink-faint); letter-spacing:0.02em;}
+  nav.toc{display:flex; gap:2px; flex-wrap:wrap;}
+  nav.toc a{
+    font-size:0.82rem; font-weight:500; color:var(--ink-soft); text-decoration:none;
+    padding:7px 10px; border-radius:6px;
+  }
+  nav.toc a:hover{color:var(--ink); background:var(--surface-2);}
+  .nav-toggle{display:none;}
+  @media (max-width: 860px){
+    nav.toc{
+      display:none; position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; background:var(--surface); border-bottom:1px solid var(--line);
+      padding:8px; box-shadow:var(--shadow);
+    }
+    nav.toc.open{display:flex;}
+    nav.toc a{padding:10px 12px;}
+    .nav-toggle{
+      display:flex; align-items:center; justify-content:center;
+      width:36px; height:36px; border-radius:8px; border:1px solid var(--line);
+      background:var(--surface); color:var(--ink); cursor:pointer;
+    }
+  }
+
+  /* ---- header / dossiê ---- */
+  header.dossie{padding:56px 0 40px; border-bottom:1px solid var(--line);}
+  .doc-code{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; font-weight:600;
+    color:var(--accent-strong); background:var(--accent-tint);
+    border:1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+    padding:5px 12px; border-radius:999px; margin-bottom:20px;
+  }
+  .doc-code .dot{width:6px; height:6px; border-radius:50%; background:var(--accent);}
+  header.dossie h1{font-size:clamp(2rem, 4.2vw, 3.1rem); max-width:16ch;}
+  header.dossie .lede{
+    margin-top:18px; max-width:62ch; font-size:1.08rem; color:var(--ink-soft);
+  }
+  .facts{
+    margin-top:36px; display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+  }
+  .fact{background:var(--surface); padding:16px 18px;}
+  .fact .k{font-size:0.68rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--ink-faint); font-weight:600;}
+  .fact .v{font-family:'IBM Plex Mono', monospace; font-size:1.15rem; font-weight:600; margin-top:6px; color:var(--ink);}
+  .fact .v small{font-family:'Public Sans',sans-serif; font-weight:500; font-size:0.72rem; color:var(--ink-faint); display:block; margin-top:2px;}
+  @media (max-width:760px){ .facts{grid-template-columns:repeat(2,1fr);} }
+
+  .cta-row{margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+    padding:11px 18px; border-radius:8px; font-weight:600; font-size:0.9rem;
+    border:1px solid transparent; transition:transform .12s ease, background .15s ease;
+  }
+  .btn-primary{background:var(--accent); color:#fff;}
+  .btn-primary:hover{background:var(--accent-strong);}
+  .btn-ghost{background:transparent; color:var(--ink); border-color:var(--line);}
+  .btn-ghost:hover{background:var(--surface-2);}
+
+  /* ---- sections ---- */
+  main section{padding:64px 0; border-bottom:1px solid var(--line);}
+  main section:last-of-type{border-bottom:none;}
+  .section-head{max-width:68ch; margin-bottom:32px;}
+  .section-head .eyebrow{margin-bottom:10px; display:block;}
+  .section-head h2{font-size:clamp(1.5rem, 2.6vw, 2rem);}
+  .section-head p{margin-top:12px; color:var(--ink-soft); font-size:1rem;}
+  .prose{max-width:68ch; color:var(--ink-soft);}
+  .prose p{margin:0 0 14px;}
+  .prose strong{color:var(--ink); font-weight:600;}
+
+  .macro-list{display:grid; gap:10px; margin-top:8px; max-width:68ch;}
+  .macro-item{
+    display:flex; gap:14px; padding:14px 16px; background:var(--surface);
+    border:1px solid var(--line); border-radius:var(--radius);
+  }
+  .macro-item .idx{
+    font-family:'IBM Plex Mono', monospace; font-weight:600; color:var(--accent);
+    flex:none; width:22px;
+  }
+  .macro-item p{margin:0; color:var(--ink-soft); font-size:0.95rem;}
+
+  /* US cards */
+  .us-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px; margin-top:8px;}
+  .us-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px; display:flex; flex-direction:column; gap:12px;
+  }
+  .us-card .tag{
+    align-self:flex-start; font-family:'IBM Plex Mono',monospace; font-size:0.7rem; font-weight:600;
+    color:var(--accent-strong); background:var(--accent-tint); padding:3px 9px; border-radius:999px;
+  }
+  .us-card h3{font-size:1.05rem; font-weight:600; font-family:'Public Sans',sans-serif; color:var(--ink);}
+  .us-card .cap{font-size:0.82rem; color:var(--ink-faint);}
+  .us-card .cap b{color:var(--ink); font-family:'IBM Plex Mono',monospace;}
+  .us-card ul{margin:0; padding-left:18px; font-size:0.85rem; color:var(--ink-soft);}
+  .us-card li{margin-bottom:4px;}
+
+  /* flow / gestão */
+  .flow{display:flex; flex-wrap:wrap; gap:0; margin-top:24px; max-width:68ch;}
+  .flow-step{
+    flex:1 1 150px; padding:16px; border:1px solid var(--line); background:var(--surface);
+    position:relative;
+  }
+  .flow-step:not(:last-child){border-right:none;}
+  .flow-step:first-child{border-radius:var(--radius) 0 0 var(--radius);}
+  .flow-step:last-child{border-radius:0 var(--radius) var(--radius) 0;}
+  .flow-step .n{font-family:'IBM Plex Mono',monospace; color:var(--ochre); font-weight:600; font-size:0.75rem;}
+  .flow-step h4{font-size:0.92rem; font-family:'Public Sans',sans-serif; font-weight:600; margin-top:6px;}
+  .flow-step p{font-size:0.8rem; color:var(--ink-faint); margin:6px 0 0;}
+  @media (max-width:700px){
+    .flow{flex-direction:column;}
+    .flow-step{border-right:1px solid var(--line) !important; border-radius:0 !important;}
+    .flow-step:first-child{border-radius:var(--radius) var(--radius) 0 0 !important;}
+    .flow-step:last-child{border-radius:0 0 var(--radius) var(--radius) !important;}
+  }
+
+  .indicator-table{width:100%; border-collapse:collapse; margin-top:20px; font-size:0.9rem;}
+  .table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius);}
+  .indicator-table th, .indicator-table td{
+    text-align:left; padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top;
+  }
+  .indicator-table thead th{
+    background:var(--surface-2); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em;
+    color:var(--ink-faint); font-weight:600;
+  }
+  .indicator-table tbody tr:last-child td{border-bottom:none;}
+  .indicator-table td.num{font-family:'IBM Plex Mono',monospace; font-variant-numeric:tabular-nums; white-space:nowrap;}
+
+  /* timeline */
+  .timeline{margin-top:32px; max-width:74ch;}
+  .tl-track{display:flex; border-radius:999px; overflow:hidden; height:10px; background:var(--surface-2); border:1px solid var(--line);}
+  .tl-seg{height:100%;}
+  .tl-seg.prep{background:var(--ochre); flex:30;}
+  .tl-seg.ajuste{background:var(--accent); flex:30;}
+  .tl-seg.execucao{background:color-mix(in srgb, var(--accent) 45%, var(--surface-2)); flex:600;}
+  .tl-seg.conclusao{background:var(--danger); flex:90;}
+  .tl-legend{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px; margin-top:20px;}
+  .tl-item{display:flex; gap:10px; align-items:flex-start;}
+  .tl-swatch{width:11px; height:11px; border-radius:3px; margin-top:4px; flex:none;}
+  .tl-item h4{font-size:0.9rem; font-family:'Public Sans',sans-serif; font-weight:600;}
+  .tl-item p{margin:3px 0 0; font-size:0.82rem; color:var(--ink-faint);}
+
+  /* condições grid */
+  .cond-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:24px;}
+  .cond-card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px;}
+  .cond-card .v{font-family:'IBM Plex Mono',monospace; font-size:1.3rem; font-weight:600; color:var(--accent-strong);}
+  .cond-card .k{font-size:0.82rem; color:var(--ink-soft); margin-top:6px;}
+  .cond-card.warn .v{color:var(--danger);}
+
+  .rule-list{margin-top:28px; max-width:68ch; display:grid; gap:0;}
+  .rule-list li{
+    list-style:none; padding:14px 0; border-top:1px solid var(--line);
+    display:grid; grid-template-columns:130px 1fr; gap:16px; font-size:0.92rem;
+  }
+  .rule-list li:last-child{border-bottom:1px solid var(--line);}
+  .rule-list .term{font-weight:600; color:var(--ink);}
+  .rule-list .def{color:var(--ink-soft);}
+  @media (max-width:600px){ .rule-list li{grid-template-columns:1fr; gap:4px;} }
+
+  /* documents */
+  .doc-toolbar{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:12px; margin-bottom:16px;}
+  .doc-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:12px;}
+  .doc-card{
+    display:flex; gap:14px; align-items:flex-start; text-decoration:none; color:inherit;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:16px; transition:border-color .15s ease, transform .12s ease;
+  }
+  .doc-card:hover{border-color:var(--accent); transform:translateY(-1px);}
+  .doc-badge{
+    flex:none; width:38px; height:38px; border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono',monospace; font-size:0.62rem; font-weight:700;
+    color:#fff;
+  }
+  .doc-badge.pdf{background:#8B3A2B;}
+  .doc-badge.odt{background:var(--accent-strong);}
+  .doc-title{font-size:0.88rem; font-weight:600; color:var(--ink); line-height:1.3;}
+  .doc-meta{font-size:0.74rem; color:var(--ink-faint); margin-top:4px; font-family:'IBM Plex Mono',monospace;}
+  .doc-desc{font-size:0.78rem; color:var(--ink-soft); margin-top:6px; line-height:1.4;}
+
+  /* participar */
+  .participar-box{
+    margin-top:24px; max-width:68ch; background:var(--accent-tint);
+    border:1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
+    border-radius:var(--radius); padding:24px;
+  }
+  .participar-box h3{font-family:'Public Sans',sans-serif; font-size:1rem; font-weight:700;}
+  .participar-box .deadline{font-family:'IBM Plex Mono',monospace; color:var(--accent-strong); font-weight:700;}
+  .participar-box ol{margin:14px 0 0; padding-left:20px; color:var(--ink-soft); font-size:0.92rem;}
+  .participar-box li{margin-bottom:6px;}
+  .participar-box code{background:var(--surface); padding:2px 6px; border-radius:4px; font-family:'IBM Plex Mono',monospace; font-size:0.85em;}
+
+  footer{padding:40px 0 60px;}
+  footer .prose{font-size:0.82rem; color:var(--ink-faint);}
+  footer a{color:var(--ink-soft);}
+  .back-top{font-size:0.78rem; text-decoration:none; color:var(--ink-faint); display:inline-block; margin-top:18px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#topo">
+      <span class="brand-mark">RFP</span>
+      <span class="brand-text">2026-013<span class="sub">Banco do Nordeste — não oficial</span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <nav class="toc" id="toc">
+      <a href="#objeto">Objeto</a>
+      <a href="#unidades">Unidades de Serviço</a>
+      <a href="#gestao">Gestão</a>
+      <a href="#niveis">Níveis de Serviço</a>
+      <a href="#transicao">Transição</a>
+      <a href="#condicoes">Condições</a>
+      <a href="#documentos">Documentos</a>
+      <a href="#participar">Participar</a>
+    </nav>
+  </div>
+</div>
+
+<header class="dossie" id="topo">
+  <div class="wrap">
+    <span class="doc-code"><span class="dot"></span> RFP Nº 2026/013 · Prazo prorrogado até 26/08/2026</span>
+    <h1>Serviços de operacionalização e distribuição de fundos de investimento</h1>
+    <p class="lede">O Banco do Nordeste quer contratar uma empresa — ou consórcio — especializada para apoiar a gestão, operacionalização e distribuição dos fundos de investimento geridos pelo Banco, num contrato de até 5 anos. Este guia resume os onze documentos que compõem a RFP 2026-013.</p>
+
+    <div class="facts">
+      <div class="fact"><div class="k">Vigência</div><div class="v">24 meses <small>prorrogável até 60</small></div></div>
+      <div class="fact"><div class="k">Postos previstos</div><div class="v">4 a 8 <small>em 4 Unidades de Serviço</small></div></div>
+      <div class="fact"><div class="k">Julgamento</div><div class="v">Menor preço <small>empreitada por preço unitário</small></div></div>
+      <div class="fact"><div class="k">Contato</div><div class="v" style="font-size:0.95rem;">fundos@bnb.gov.br<small>assunto: RFP-2026/013</small></div></div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#documentos">Ver os 11 documentos</a>
+      <a class="btn btn-ghost" href="https://www.bnb.gov.br/acesso-a-informacao/licitacoes-e-contratos/consultas-e-audiencias" target="_blank" rel="noopener">Página oficial no BNB ↗</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="objeto">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">01 · Objeto</span>
+        <h2>O que o Banco está contratando</h2>
+        <p>Ligada ao projeto de implantação da subsidiária <strong>BNB Asset</strong>, a contratação busca reforçar a estrutura interna do Banco com apoio técnico especializado, justificada pela necessidade de conformidade com a Resolução CVM nº 175/2022 e pela escalabilidade das operações de fundos.</p>
+      </div>
+      <div class="prose">
+        <p>O Termo de Referência (Anexo I) organiza o objeto em <strong>seis macroprocessos</strong>. Todos podem ser prestados por uma única contratada (ou consórcio), de forma integrada:</p>
+      </div>
+      <div class="macro-list">
+        <div class="macro-item"><span class="idx">a</span><p>Distribuição de fundos de investimento e relacionamento com clientes e parceiros</p></div>
+        <div class="macro-item"><span class="idx">b</span><p>Suporte à análise de crédito privado</p></div>
+        <div class="macro-item"><span class="idx">c</span><p>Controladoria do passivo e suporte à custódia</p></div>
+        <div class="macro-item"><span class="idx">d</span><p>Análise e apoio ao desenvolvimento de produtos e parcerias</p></div>
+        <div class="macro-item"><span class="idx">e</span><p>Divulgação institucional e de investimentos</p></div>
+        <div class="macro-item"><span class="idx">f</span><p>Suporte administrativo e operacional às atividades de gestão de fundos</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="unidades">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">02 · Anexos II, VI e VII</span>
+        <h2>Como o trabalho é dividido: 4 Unidades de Serviço</h2>
+        <p>Cada Unidade de Serviço (US) é uma frente funcional com perfil profissional, formação e certificações próprias. A capacidade prevista é de 1 a 2 profissionais por US — um teto global de 8 postos, sem obrigação de contratar o máximo.</p>
+      </div>
+      <div class="us-grid">
+        <div class="us-card">
+          <span class="tag">US-1</span>
+          <h3>Distribuição de Fundos de Investimento</h3>
+          <div class="cap">Capacidade: <b>1–2</b> postos · Presencial</div>
+          <ul>
+            <li>Graduação em Administração, Economia ou Contábeis</li>
+            <li>2 anos de experiência em distribuição/relacionamento com investidores</li>
+            <li>Certificação CPA ou CPRO (ANBIMA)</li>
+          </ul>
+        </div>
+        <div class="us-card">
+          <span class="tag">US-2</span>
+          <h3>Análise de Produtos e Parcerias</h3>
+          <div class="cap">Capacidade: <b>1–2</b> postos · Híbrido</div>
+          <ul>
+            <li>Graduação em Administração, Economia ou Contábeis</li>
+            <li>4 anos em estruturação de produtos e gestão de parcerias</li>
+            <li>Certificação CPA ou CPRO (ANBIMA)</li>
+          </ul>
+        </div>
+        <div class="us-card">
+          <span class="tag">US-3</span>
+          <h3>Análise de Crédito Privado</h3>
+          <div class="cap">Capacidade: <b>1–2</b> postos · Híbrido</div>
+          <ul>
+            <li>Graduação em Administração, Economia, Contábeis ou Estatística</li>
+            <li>2 anos em análise de crédito privado / renda fixa</li>
+            <li>Certificação CPA, CGA ou CGE (ANBIMA)</li>
+          </ul>
+        </div>
+        <div class="us-card">
+          <span class="tag">US-4</span>
+          <h3>Gestão de Conteúdo em Fundos</h3>
+          <div class="cap">Capacidade: <b>1–2</b> postos · Híbrido</div>
+          <ul>
+            <li>Graduação em Administração, Comunicação ou Marketing</li>
+            <li>2 anos em comunicação institucional / relacionamento</li>
+            <li>Certificação CPA (ANBIMA)</li>
+          </ul>
+        </div>
+      </div>
+      <p class="prose" style="margin-top:20px; font-size:0.85rem;">Regime obrigatório: <strong>CLT</strong> para todos os profissionais alocados — o Edital veda expressamente a modalidade PJ. Local preferencial: Direção Geral do BNB, em Fortaleza-CE, ou Superintendências Estaduais.</p>
+    </div>
+  </section>
+
+  <section id="gestao">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">03 · Anexo III</span>
+        <h2>Modelo de gestão dos serviços</h2>
+        <p>A execução gira em torno da <strong>Ordem de Serviço (OS)</strong> — o mecanismo formal usado pelo Banco para solicitar, acompanhar e validar cada entrega, registrado numa ferramenta de controle própria do CONTRATANTE.</p>
+      </div>
+      <div class="flow">
+        <div class="flow-step"><span class="n">01</span><h4>Abertura da OS</h4><p>O Banco descreve o serviço, volume, prazo e critérios de aceite.</p></div>
+        <div class="flow-step"><span class="n">02</span><h4>Execução</h4><p>A contratada aloca a equipe e cumpre os Níveis Mínimos de Serviço.</p></div>
+        <div class="flow-step"><span class="n">03</span><h4>Relatório mensal</h4><p>Entregue até o 5º dia útil do mês seguinte.</p></div>
+        <div class="flow-step"><span class="n">04</span><h4>Validação</h4><p>O Banco confere o relatório em até 5 dias úteis.</p></div>
+        <div class="flow-step"><span class="n">05</span><h4>Faturamento</h4><p>Nota fiscal em até 5 dias úteis após a validação.</p></div>
+        <div class="flow-step"><span class="n">06</span><h4>Pagamento</h4><p>Até o dia 25 do mês subsequente.</p></div>
+      </div>
+      <p class="prose" style="margin-top:24px; font-size:0.9rem;">A contratada deve designar, sem custo adicional, um <strong>gerente de contrato</strong> (administrativo/financeiro) e um <strong>supervisor técnico</strong> — este último atuando presencialmente em Fortaleza. Não é permitido acumular essas funções com a execução das Unidades de Serviço.</p>
+    </div>
+  </section>
+
+  <section id="niveis">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">04 · Anexo V</span>
+        <h2>Prazos, níveis de serviço e descontos</h2>
+        <p>O pagamento mensal está condicionado ao cumprimento dos Níveis Mínimos de Serviço (NMS). Quando a capacidade contratada não é totalmente utilizada, aplica-se um desconto proporcional.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="indicator-table">
+          <thead>
+            <tr><th>Situação</th><th>Regra</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Desconto por capacidade ociosa</td><td>(dias úteis previstos − dias úteis executados) ÷ dias úteis previstos</td></tr>
+            <tr><td>Teto de desconto mensal</td><td class="num">30% do valor mensal</td></tr>
+            <tr><td>1º mês de contrato</td><td>Isento de redutores (período de transição)</td></tr>
+            <tr><td>Contestação de desconto</td><td class="num">até 5 dias úteis</td></tr>
+            <tr><td>Revisão de indicadores</td><td>a cada 6 meses, de comum acordo</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="prose" style="margin-top:20px; font-size:0.9rem;">A contratada também deve manter um plano de <strong>contingência</strong> para greves de transporte, greve de categoria, ou impedimento de acesso ao local de trabalho — com uma Gerência de Crise formada sob demanda.</p>
+    </div>
+  </section>
+
+  <section id="transicao">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">05 · Anexo VIII</span>
+        <h2>Cronograma de transição do contrato</h2>
+        <p>Do primeiro dia após a assinatura até o encerramento, o contrato passa por quatro fases sequenciais.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-track">
+          <div class="tl-seg prep"></div>
+          <div class="tl-seg ajuste"></div>
+          <div class="tl-seg execucao"></div>
+          <div class="tl-seg conclusao"></div>
+        </div>
+        <div class="tl-legend">
+          <div class="tl-item"><span class="tl-swatch" style="background:var(--ochre)"></span><div><h4>Preparo — até 30 dias</h4><p>Fornecedor se organiza; pagamento proporcional às US já ativas.</p></div></div>
+          <div class="tl-item"><span class="tl-swatch" style="background:var(--accent)"></span><div><h4>Ajustamento e absorção — até 30 dias</h4><p>Oficinas de conhecimento, cadastro de acessos, sem aplicação de NMS.</p></div></div>
+          <div class="tl-item"><span class="tl-swatch" style="background:color-mix(in srgb, var(--accent) 45%, var(--surface-2))"></span><div><h4>Execução plena</h4><p>Contrato em regime normal, com NMS e glosas em vigor.</p></div></div>
+          <div class="tl-item"><span class="tl-swatch" style="background:var(--danger)"></span><div><h4>Conclusão — últimos 3 meses</h4><p>Transferência de conhecimento, documentação e credenciais para o Banco ou novo fornecedor.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="condicoes">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">06 · Termo de Referência</span>
+        <h2>Condições contratuais</h2>
+        <p>Regras gerais que valem para toda a execução do contrato, independentemente da Unidade de Serviço.</p>
+      </div>
+      <div class="cond-grid">
+        <div class="cond-card"><div class="v">24 → 60 meses</div><div class="k">Vigência inicial, prorrogável em ciclos de 12 meses</div></div>
+        <div class="cond-card"><div class="v">5%</div><div class="k">Garantia contratual sobre o valor global</div></div>
+        <div class="cond-card"><div class="v">IPCA</div><div class="k">Índice de reajuste anual dos preços</div></div>
+        <div class="cond-card warn"><div class="v">R$ 10.000/dia</div><div class="k">Multa por atraso na ativação dos serviços (até 10% do contrato)</div></div>
+        <div class="cond-card warn"><div class="v">5%</div><div class="k">Multa por descumprimento grave dos NMS</div></div>
+        <div class="cond-card"><div class="v">Vedada</div><div class="k">Subcontratação de qualquer parcela do objeto</div></div>
+      </div>
+      <ul class="rule-list">
+        <li><span class="term">Consórcio</span><span class="def">Permitido, com responsabilidade solidária entre as consorciadas e empresa líder única para interlocução com o Banco.</span></li>
+        <li><span class="term">Regime de trabalho</span><span class="def">CLT obrigatório para todos os profissionais alocados; não se admite regime PJ.</span></li>
+        <li><span class="term">Habilitação técnica</span><span class="def">Atestado(s) comprovando 3 anos de experiência em instituições financeiras, seguradoras, gestoras ou fintechs de porte equivalente.</span></li>
+        <li><span class="term">Modo de disputa</span><span class="def">Aberto, com julgamento por menor preço e execução por empreitada a preço unitário.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="documentos">
+    <div class="wrap">
+      <div class="doc-toolbar">
+        <div class="section-head" style="margin-bottom:0;">
+          <span class="eyebrow">07 · Fonte primária</span>
+          <h2>Os 11 documentos da RFP 2026-013</h2>
+          <p>Todos hospedados no site oficial do Banco do Nordeste. Este site é um resumo independente — para participar, use sempre os arquivos originais.</p>
+        </div>
+      </div>
+      <div class="doc-grid">
+        <a class="doc-card" href="https://www.bnb.gov.br/documents/45839/10075192/Anexo%20I%20-%20Termo%20de%20Refer%C3%AAncia%20-%20RFP%202026-013.pdf/b81b3a2e-e501-bf21-701e-f33b2e04048f" target="_blank" rel="noopener">
+          <span class="doc-badge pdf">PDF</span>
+          <div><div class="doc-title">Anexo I — Termo de Referência</div><div class="doc-meta">641 KB</div><div class="doc-desc">Objeto, macroprocessos, vigência, pagamento, sanções e critérios de habilitação.</div></div>
+        </a>
+        <a class="doc-card" href="https://www.bnb.gov.br/documents/45839/10075192/Anexo%20II%20-%20Especifica%C3%A7%C3%B5es%20dos%20Servi%C3%A7os%20-%20RFP%202026-013.pdf/ca9b9cae-d269-22d1-94fd-3a993f5b0a5b" target="_blank" rel="noopener">
+          <span class="doc-badge pdf">PDF</span>
+          <div><div class="doc-title">Anexo II — Especificações dos Serviços</div><div class="doc-meta">840 KB</div><div class="doc-desc">Detalha as atividades de cada Unidade de Serviço, janelas de atendimento e local de prestação.</div></div>
+        </a>
+        <a class="doc-card" href="https://www.bnb.gov.br/documents/45839/10075192/Anexo%20III%20-%20Modelo%20de%20Gest%C3%A3o%20dos%20Servi%C3%A7os%20-%20RFP%202026-013.pdf/f59c1bbc-a0a0-b20c-c1d0-ecc3f67b73e0" target="_blank" rel="noopener">
+          <span class="doc-badge pdf">PDF</span>
+          <div><div class="doc-title">Anexo III — Modelo de Gestão dos Serviços</div><div class="doc-meta">662 KB</div><div class="doc-desc">Fluxo de Ordens de Serviço, papéis exigidos e regras de desconto por capacidade ociosa.</div></div>
+        </a>
+        <a class="doc-card" href="https://www.bnb.gov.br/documents/45839/10075192/Anexo%20V%20-%20Prazos%20e%20N%C3%ADveis%20de%20Servi%C3%A7os%20-%20RFP%202026-013.pdf/0f826e97-5d4c-de18-0cbf-7082df0eeca4" target="_blank" rel="noopener">
+          <span class="doc-badge pdf">PDF</span>
+          <div><div class="doc-title">Anexo V — Prazos e Níveis de Serviços</div><div class="doc-meta">535 KB</div><div class="doc-desc">Indicadores de desempenho, glosas, penalidades e regras de contingência.</div></div>
+        </a>
+        <a class="doc-card" href="https://www.bnb.gov.br/documents/45839/10075192/Anexo%20VI%20-%20Perfis%20e%20Qualifica%C3%A7%C3%B5es%20dos%20Profissionais%20do%20Contratado%20-%20RFP%202026-013.pdf/4a402dc4-d52b-0f39-721d-205c97fcae9b" target="_blank" rel="noopener">
+          <span class="doc-badge pdf">PDF</span>
+          <div><div class="doc-title">Anexo VI — Perfis e Qualificações dos Profissionais</div><div class="doc-meta">490 KB</div><div class="doc-desc">Formação, experiência e certificações exigidas por Unidade de Serviço.</div></div>
+        </a>
+        <a class="doc-card" href="https://www.bnb.gov.br/documents/45839/10075192/Anexo%20VII%20-%20Volume%20Estimado%20dos%20Servi%C3%A7os%20-%20RFP%202026-013.pdf/91c83833-7db1-31e8-4824-73406886646b" target="_blank" rel="noopener">
+          <span class="doc-badge pdf">PDF</span>
+          <div><div class="doc-title">Anexo VII — Volume Estimado dos Serviços</div><div class="doc-meta">477 KB</div><div class="doc-desc">Tabela de capacidade operacional mínima e máxima por Unidade de Serviço (total: 4 a 8 postos).</div></div>
+        </a>
+        <a class="doc-card" href="https://www.bnb.gov.br/documents/45839/10075192/Anexo%20VIII%20-%20Transi%C3%A7%C3%A3o%20dos%20Servi%C3%A7os%20-%20RFP%202026-013.pdf/1aa37685-ea8b-8624-65e1-b8d1758c7c9b" target="_blank" rel="noopener">
+          <span class="doc-badge pdf">PDF</span>
+          <div><div class="doc-title">Anexo VIII — Transição dos Serviços</div><div class="doc-meta">490 KB</div><div class="doc-desc">Fases de pré-operação, execução plena e encerramento do contrato.</div></div>
+        </a>
+        <a class="doc-card" href="https://www.bnb.gov.br/documents/45839/10075192/Anexo%20IX%20-%20Composi%C3%A7%C3%A3o%20dos%20Custos%20-%20RFP%202026-013.odt/42d300ee-4297-f58a-61b3-e5a0b235faa6" target="_blank" rel="noopener">
+          <span class="doc-badge odt">ODT</span>
+          <div><div class="doc-title">Anexo IX — Composição dos Custos</div><div class="doc-meta">18 KB · a preencher</div><div class="doc-desc">Planilha-modelo de remuneração, encargos e tributos para 60 meses de contrato.</div></div>
+        </a>
+        <a class="doc-card" href="https://www.bnb.gov.br/documents/45839/10075192/Anexo%20X%20-%20Modelo%20de%20Duvidas%20e%20Sugest%C3%B5es%20-%20RFP%202026-013.odt/d4b75548-db29-0bfc-5c22-f2f92a17afa8" target="_blank" rel="noopener">
+          <span class="doc-badge odt">ODT</span>
+          <div><div class="doc-title">Anexo X — Modelo de Dúvidas e Sugestões</div><div class="doc-meta">10 KB · a preencher</div><div class="doc-desc">Formulário padrão para encaminhar questionamentos sobre o Edital.</div></div>
+        </a>
+        <a class="doc-card" href="https://www.bnb.gov.br/documents/45839/10075192/Publica%C3%A7%C3%A3o%20no%20Di%C3%A1rio%20Oficial%20da%20Uni%C3%A3o%20de%2017-07-2026,%20p%C3%A1gina%20103%20-%20RFP%202026-013.pdf.pdf/acec1844-181f-662d-c5c6-6e41b5552b52" target="_blank" rel="noopener">
+          <span class="doc-badge pdf">PDF</span>
+          <div><div class="doc-title">Publicação no D.O.U. — 17/07/2026</div><div class="doc-meta">193 KB</div><div class="doc-desc">Aviso original de abertura da RFP no Diário Oficial da União.</div></div>
+        </a>
+        <a class="doc-card" href="https://www.bnb.gov.br/documents/45839/10075192/Aviso%20de%20Prorroga%C3%A7%C3%A3o%20-%20Publica%C3%A7%C3%A3o%20no%20Di%C3%A1rio%20Oficial%20da%20Uni%C3%A3o%20de%2010-08-2026,%20p%C3%A1gina%2096%20-%20RFP%202026-013.pdf" target="_blank" rel="noopener">
+          <span class="doc-badge pdf">PDF</span>
+          <div><div class="doc-title">Aviso de Prorrogação — D.O.U. 10/08/2026</div><div class="doc-meta">193 KB</div><div class="doc-desc">Publicação que estende o prazo de propostas até 26/08/2026.</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="participar">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">08 · Como participar</span>
+        <h2>Enviando proposta, dúvida ou sugestão</h2>
+      </div>
+      <div class="participar-box">
+        <h3>Prazo prorrogado: <span class="deadline">26/08/2026</span></h3>
+        <ol>
+          <li>Preencha o <strong>Anexo IV</strong> (Modelo de Proposta) e o <strong>Anexo IX</strong> (Composição dos Custos).</li>
+          <li>Envie exclusivamente para <code>fundos@bnb.gov.br</code>.</li>
+          <li>Use como assunto: <code>RFP-2026/013 – Serviços de Operacionalização e Distribuição de Fundos de Investimento</code>.</li>
+          <li>Dúvidas e sugestões seguem o modelo do <strong>Anexo X</strong>, pelo mesmo e-mail.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="prose">
+      <p><strong>Este site é um resumo independente e não oficial</strong>, produzido a partir dos documentos públicos da RFP 2026-013 divulgados pelo Banco do Nordeste do Brasil S.A. Em caso de qualquer divergência, prevalece o conteúdo dos <a href="#documentos">documentos originais</a> e da <a href="https://www.bnb.gov.br/acesso-a-informacao/licitacoes-e-contratos/consultas-e-audiencias" target="_blank" rel="noopener">página oficial de Consultas e Audiências</a> do BNB.</p>
+      <p>Compilado em agosto de 2026.</p>
+    </div>
+    <a class="back-top" href="#topo">↑ voltar ao topo</a>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var toc = document.getElementById('toc');
+    if(toggle && toc){
+      toggle.addEventListener('click', function(){
+        var open = toc.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      toc.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){ toc.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); });
+      });
+    }
+  })();
+</script>
+</body>
+</html>
